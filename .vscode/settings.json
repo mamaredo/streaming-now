@@ -11,7 +11,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "eslint.nodePath": "./frontend/.eslintrc",
-  "eslint.workingDirectories": ["./frontend/src/**"],
+  "eslint.workingDirectories": ["./frontend"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
