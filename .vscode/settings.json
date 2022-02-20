@@ -1,0 +1,22 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.configPath": "./frontend/.prettierrc",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.nodePath": "./frontend/.eslintrc",
+  "eslint.workingDirectories": ["./frontend/src/**"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.packageManager": "yarn",
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}
