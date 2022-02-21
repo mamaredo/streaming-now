@@ -86,7 +86,6 @@
 - Next.js
 - TypeScript
 - ChakraUI
-- tailwindCSS
 
 #### 開発サポート
 
