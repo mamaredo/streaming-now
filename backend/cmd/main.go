@@ -22,22 +22,25 @@ func getTests(w http.ResponseWriter, r *http.Request) {
 
 func getTest(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	params := mux.Vars(r)
 
-	// Loop through books and find with id
 	for _, item := range tests {
-		if item.ID == params["id"] {
-			json.NewEncoder(w).Encode(item)
-			return
-		}
+		json.NewEncoder(w).Encode(item)
+		return
 	}
-	json.NewEncoder(w).Encode(&Test{})
+}
+
+func requestHeaderMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		origin := "http://localhost:3000"
+		w.Header().Set("Access-Control-Allow-Origin", origin)
+		next.ServeHTTP(w, r)
+	})
 }
 
 func main() {
 	// ルーターのイニシャライズ
 	r := mux.NewRouter()
-
+	r.Use(requestHeaderMiddleware)
 	tests = append(tests, Test{ID: "1", Title: "Test API"})
 
 	// ルート(エンドポイント)
