@@ -18,5 +18,7 @@
   "eslint.packageManager": "npm",
   "editor.quickSuggestions": {
     "strings": true
-  }
+  },
+  "go.formatTool": "goimports",
+  "go.toolsEnvVars": {"GOFLAGS": "-tags=integration"}
 }
