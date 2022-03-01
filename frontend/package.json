@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --write --ignore-path .prettierignore .",
-    "lint": "eslint --fix \"*.{ts, tsx}\" --ignore-path .eslintignore ."
+    "lint": "eslint --fix \"*.{ts, tsx}\" --ignore-path .eslintignore .",
+    "plop": "plop"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.5",
