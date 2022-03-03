@@ -6,7 +6,6 @@ import (
 	"net/http"
 
 	"github.com/mamaredo/streaming-now/api/twitch"
-	"github.com/mamaredo/streaming-now/pkg/env"
 	"github.com/mamaredo/streaming-now/router"
 )
 
@@ -35,9 +34,7 @@ func main() {
 	r := router.Setup()
 	tests = append(tests, Test{ID: "1", Title: "Test API"})
 
-	tru := env.Get("TWITCH_REDIRECT_URL")
-	// ルート(エンドポイント)
-	r.HandleFunc(tru, twitch.Auth).Methods("GET")
+	r.HandleFunc("/api/twitch-auth", twitch.Auth).Methods("POST", "OPTIONS")
 	r.HandleFunc("/api/tests", getTests).Methods("GET")
 	r.HandleFunc("/api/test", getTest).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", r))
