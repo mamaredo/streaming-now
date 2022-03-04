@@ -2,6 +2,10 @@ import { ParsedUrlQuery } from 'querystring'
 
 import { axios } from '@/lib/axios'
 
+import { Endpoint } from '../types'
+
+const endpoint: Endpoint['auth'] = '/api/twitch/auth'
+
 export const twitchAuth = async (params: ParsedUrlQuery) => {
   const payload = {
     code: params.code,
@@ -9,7 +13,7 @@ export const twitchAuth = async (params: ParsedUrlQuery) => {
   }
 
   const { is_auth }: { is_auth: boolean } = await axios.post(
-    '/api/twitch-auth',
+    endpoint,
     JSON.stringify(payload),
     {
       headers: {
