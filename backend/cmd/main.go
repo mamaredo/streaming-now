@@ -5,7 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
+	"github.com/mamaredo/streaming-now/api/twitch"
+	"github.com/mamaredo/streaming-now/router"
 )
 
 type Test struct {
@@ -29,21 +30,11 @@ func getTest(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func requestHeaderMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		origin := "http://localhost:3000"
-		w.Header().Set("Access-Control-Allow-Origin", origin)
-		next.ServeHTTP(w, r)
-	})
-}
-
 func main() {
-	// ルーターのイニシャライズ
-	r := mux.NewRouter()
-	r.Use(requestHeaderMiddleware)
+	r := router.Setup()
 	tests = append(tests, Test{ID: "1", Title: "Test API"})
 
-	// ルート(エンドポイント)
+	r.HandleFunc("/api/twitch-auth", twitch.Auth).Methods("POST", "OPTIONS")
 	r.HandleFunc("/api/tests", getTests).Methods("GET")
 	r.HandleFunc("/api/test", getTest).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", r))

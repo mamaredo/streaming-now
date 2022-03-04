@@ -1,30 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useQuery } from 'react-query'
 
-import { axios } from '@/lib/axios'
-
-function Test() {
-  const { data, isLoading } = useQuery<any>('testQuery', async () => {
-    const data = await axios.get('/api/test')
-    return data
-  })
-
-  if (isLoading) {
-    return <p>...Loading</p>
-  }
-
-  if (!data) {
-    return <p>Error</p>
-  }
-
-  return (
-    <>
-      <div>{data.id}</div>
-      <div>{data.title}</div>
-    </>
-  )
-}
+import { SignInTwitch } from '@/features/twitch-auth'
 
 const Home: NextPage = () => {
   return (
@@ -37,7 +14,7 @@ const Home: NextPage = () => {
       <div>
         <main>
           <div>Hello world</div>
-          <Test />
+          <SignInTwitch />
         </main>
         <footer></footer>
       </div>
