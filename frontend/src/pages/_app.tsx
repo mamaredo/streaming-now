@@ -1,5 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
+import { CookiesProvider } from 'react-cookie'
 import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
       <ChakraProvider>
-        <Component {...pageProps} />
+        <CookiesProvider>
+          <Component {...pageProps} />
+        </CookiesProvider>
       </ChakraProvider>
     </QueryClientProvider>
   )
