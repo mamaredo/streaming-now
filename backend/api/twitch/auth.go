@@ -9,9 +9,20 @@ import (
 	"net/url"
 	"strings"
 
+	_ "github.com/gorilla/sessions"
 	"github.com/mamaredo/streaming-now/pkg/env"
 )
 
+// const (
+// 	oauthSessionName = "oauth-oidc-session"
+// )
+
+// var (
+// 	cookieSecret = []byte("Please use a more sensible secret than this one")
+// 	cookieStore  = sessions.NewCookieStore(cookieSecret)
+// )
+
+// cookieにアクセストークン, id_tokenを乗せてレスポンスを返す
 type Response struct {
 	Is_auth bool `json:"is_auth"`
 }
@@ -29,6 +40,16 @@ func Auth(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
+	accessTokenCookie := &http.Cookie{
+		Name:  "twitch_access_token",
+		Value: token["access_token"].(string),
+	}
+	idTokenCookie := &http.Cookie{
+		Name:  "twitch_id_token",
+		Value: token["id_token"].(string),
+	}
+	http.SetCookie(w, accessTokenCookie)
+	http.SetCookie(w, idTokenCookie)
 	id_token := token["id_token"].(string)
 	if err := VerifySignature(&id_token); err != nil {
 		return
@@ -82,8 +103,6 @@ func requestToken(query url.Values, r *http.Request) (map[string]interface{}, er
 	if err != nil {
 		return nil, err
 	}
-
-	// r.AddCookie(c)
 	client := &http.Client{}
 	res, err := client.Do(req)
 	if err != nil {
