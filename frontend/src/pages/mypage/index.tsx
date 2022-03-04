@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 
+import { Streamer } from '@/features/streamer'
+
 const useExistsCookies = () => {
   const [existsCookie, setExistsCookie] = useState<null | boolean>(null)
   const [cookies] = useCookies()
@@ -29,7 +31,12 @@ const MyPage = () => {
     !existsCookie && router.replace('/')
   }, [existsCookie, router])
 
-  return <div>my-page</div>
+  return (
+    <div>
+      my-page
+      <Streamer />
+    </div>
+  )
 }
 
 export default MyPage
