@@ -1,39 +1,43 @@
-import { Text } from '@chakra-ui/react'
+import { Spinner, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
-import { useQuery } from 'react-query'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
-import { CallbackTwitch } from '@/features/twitch-auth'
-import { axios } from '@/lib/axios'
+import { SignInTwitch, useCallbackTwitch } from '@/features/twitch-auth'
 
-function Test() {
-  const { data, isLoading } = useQuery<any>('testQuery', async () => {
-    const data = await axios.get('/api/test')
-    return data
-  })
+const Callback: NextPage = () => {
+  const router = useRouter()
+  const twitch = useCallbackTwitch()
 
-  if (isLoading) {
-    return <p>...Loading</p>
-  }
+  useEffect(() => {
+    ;(async () => {
+      const isTwitchAuth = await twitch.isAuth
+      if (!router.isReady) return
 
-  if (!data) {
-    return <p>Error</p>
+      isTwitchAuth && router.replace('/mypage')
+    })()
+  }, [twitch, router])
+
+  if (twitch.isAuth !== null && !twitch.isAuth) {
+    return (
+      <div>
+        <Text>認証に失敗しました。</Text>
+        <SignInTwitch />
+      </div>
+    )
   }
 
   return (
     <>
-      <div>{data.id}</div>
-      <div>{data.title}</div>
+      認証中です。
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+      />
     </>
-  )
-}
-
-const Callback: NextPage = () => {
-  return (
-    <div>
-      <Text>FROM CALLBACK PAGE</Text>
-      <Test />
-      <CallbackTwitch />
-    </div>
   )
 }
 
