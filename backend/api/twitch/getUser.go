@@ -20,7 +20,6 @@ type UserResponse struct {
 }
 
 func GetUser(token *VerifiedToken, uids Uids) (*UserResponse, error) {
-	fmt.Println(uids)
 	var queryString = uids[0]
 	const id = "id="
 	fmt.Println(queryString)
@@ -31,7 +30,7 @@ func GetUser(token *VerifiedToken, uids Uids) (*UserResponse, error) {
 			queryString += "&" + id + u[i]
 		}
 	}
-	fmt.Println(queryString)
+
 	requestArg := NewRequestArg{
 		Method: "GET",
 		Url:    "https://api.twitch.tv/helix/users?id=" + queryString,
@@ -48,6 +47,6 @@ func GetUser(token *VerifiedToken, uids Uids) (*UserResponse, error) {
 	if err := json.Unmarshal(b, &r); err != nil {
 		return nil, err
 	}
-	fmt.Println("r", len(r.Data))
+
 	return &r, nil
 }
