@@ -41,16 +41,16 @@ module.exports = function (
         actions.push(
           {
             type: 'add',
-            path: 'src/componentss/Elements/{{pascalCase component}}/index.ts',
+            path: 'src/components/Elements/{{pascalCase component}}/index.ts',
             templateFile: 'generator/component/index.ts.hbs'
           },
           {
             type: 'add',
-            path: 'src/componentss/Elements/{{pascalCase component}}/{{pascalCase component}}.tsx',
+            path: 'src/components/Elements/{{pascalCase component}}/{{pascalCase component}}.tsx',
             templateFile: 'generator/component/Component.tsx.hbs'
           },
           plop.getParentIndexAction(component, {
-            target: 'src/componentss/Elements/index.ts',
+            target: 'src/components/Elements/index.ts',
             templateFile: 'generator/component/index.ts.hbs'
           })
         )
