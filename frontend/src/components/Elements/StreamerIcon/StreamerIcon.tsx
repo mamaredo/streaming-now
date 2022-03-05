@@ -6,5 +6,5 @@ export type StreamerIconProps = {
 }
 
 export const StreamerIcon = ({ src, name }: StreamerIconProps) => {
-  return <Avatar name={name} src={src} size="2xl" />
+  return <Avatar name={name} src={src} size="xl" boxShadow="md" />
 }
