@@ -25,6 +25,7 @@ func VerifyAccessToken(w http.ResponseWriter, r *http.Request) *VerifiedToken {
 		log.Println("[Middleware] AccessToken get cookie Error")
 		return nil
 	}
+
 	client := http.Client{}
 	req, err := http.NewRequest("GET", "https://id.twitch.tv/oauth2/validate", nil)
 	if err != nil {
