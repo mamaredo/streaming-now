@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 
-import { Streamer } from '@/features/streamer'
+import { ActiveStreamer } from '@/features/streamer'
 
 const useExistsCookies = () => {
   const [existsCookie, setExistsCookie] = useState<null | boolean>(null)
@@ -11,9 +11,9 @@ const useExistsCookies = () => {
   useEffect(() => {
     console.log('useExistsCookies')
     const accessToken = cookies['twitch_access_token']
-    const idToken = cookies['twitch_id_token']
+    // const idToken = cookies['twitch_id_token']
 
-    if (!accessToken || !idToken) return setExistsCookie(false)
+    if (!accessToken) return setExistsCookie(false)
     setExistsCookie(true)
   }, [cookies])
 
@@ -34,7 +34,7 @@ const MyPage = () => {
   return (
     <div>
       my-page
-      <Streamer />
+      <ActiveStreamer />
     </div>
   )
 }
