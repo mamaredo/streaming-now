@@ -1,1 +1,1 @@
-export * from './components/Streamer'
+export * from './components/ActiveStreamer'

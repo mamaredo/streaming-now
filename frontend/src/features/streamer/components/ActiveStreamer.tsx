@@ -1,12 +1,12 @@
 import { useQuery } from 'react-query'
 
-import { getStreamer } from '../api/getStreamer'
+import { getActiveStreamer } from '../api/getActiveStreamer'
 
 export type StreamerProps = {}
 
-export const Streamer = () => {
-  const { data, isLoading } = useQuery('useGetStreamerQuery', getStreamer)
-
+export const ActiveStreamer = () => {
+  const { data, isLoading } = useQuery('useGetStreamerQuery', getActiveStreamer)
+  console.log(data)
   if (isLoading) {
     return <div>loading</div>
   }
