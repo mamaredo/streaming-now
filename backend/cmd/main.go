@@ -39,6 +39,6 @@ func main() {
 	r.HandleFunc("/api/tests", getTests).Methods("GET")
 	r.HandleFunc("/api/test", getTest).Methods("GET")
 
-	r.HandleFunc("/api/twitch/streamer", twitch.GetFollowStreamer).Methods("GET")
+	r.HandleFunc("/api/twitch/active-streamer", twitch.GetActiveStreamer).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", r))
 }

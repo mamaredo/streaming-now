@@ -1,3 +1,3 @@
 export type Endpoint = {
-  streamer: '/api/twitch/streamer'
+  streamer: '/api/twitch/active-streamer'
 }
