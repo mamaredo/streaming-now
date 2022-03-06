@@ -17,8 +17,8 @@ export const theme = extendTheme({
       }
     },
     fonts: {
-      heading: '"Righteous", cursive, sans;',
-      body: '"Righteous", cursive;'
+      heading: '"Righteous", "Noto Sans JP", cursive, sans-serif;',
+      body: '"Righteous", "Noto Sans JP", cursive, sans-serif;'
     }
   },
   styles: {
