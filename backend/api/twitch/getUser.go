@@ -22,7 +22,6 @@ type UserResponse struct {
 func GetUser(token *VerifiedToken, uids Uids) (*UserResponse, error) {
 	var queryString = uids[0]
 	const id = "id="
-	fmt.Println(queryString)
 	if len(uids) >= 2 {
 		u := uids[1:]
 		fmt.Println(u)
