@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import 'focus-visible/dist/focus-visible'
 
 import { ChakraProvider } from '@chakra-ui/react'
@@ -7,12 +8,13 @@ import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 import { queryClient } from '@/lib/react-query'
+import { theme } from '@/styles/theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <CookiesProvider>
           <Component {...pageProps} />
         </CookiesProvider>
