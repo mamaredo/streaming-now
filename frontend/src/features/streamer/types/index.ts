@@ -1,5 +1,6 @@
 export type Endpoint = {
-  streamer: '/api/twitch/active-streamer'
+  activeStreamer: '/api/twitch/active-streamer'
+  sleepStreamer: '/api/twitch/sleep-streamer'
 }
 
 export type ActiveStreamer = {
