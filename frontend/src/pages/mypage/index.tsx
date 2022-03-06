@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, chakra } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
@@ -6,7 +6,7 @@ import { Header } from '@/components/App'
 import { Heading } from '@/components/Elements'
 import { Head } from '@/components/Head'
 import { MainLayout } from '@/components/Layout'
-import { ActiveStreamer } from '@/features/streamer'
+import { ActiveStreamer, SleepStreamer } from '@/features/streamer'
 import { useHasAccessToken } from '@/hooks/useHasAccessToken'
 
 const SectionHeading = ({ text }: { text: string }) => (
@@ -14,6 +14,14 @@ const SectionHeading = ({ text }: { text: string }) => (
     {text}
   </Heading>
 )
+
+const ChakraHr = chakra('hr', {
+  baseStyle: {
+    width: '100%',
+    height: '1px',
+    bgColor: '#DCDCDC'
+  }
+})
 
 const MyPage = () => {
   const { hasAccessToken } = useHasAccessToken()
@@ -34,6 +42,17 @@ const MyPage = () => {
             <SectionHeading text="ACTIVE STREAMER" />
             <Box pt="4">
               <ActiveStreamer />
+            </Box>
+          </Box>
+        </Box>
+
+        <ChakraHr />
+
+        <Box py="14">
+          <Box as="section">
+            <SectionHeading text="SLEEP STREAMER" />
+            <Box pt="4">
+              <SleepStreamer />
             </Box>
           </Box>
         </Box>
