@@ -9,13 +9,16 @@ export const theme = extendTheme({
       secondary: {
         default: '#FF2C6C'
       },
-      text: {
-        default: '#2B2B2B'
+      'text-primary': {
+        default: '#2E2E2E'
+      },
+      'text-secondary': {
+        default: '#3B3B3B'
       }
     },
     fonts: {
-      heading: 'Righteous, cursive;',
-      body: 'Righteous, cursive;'
+      heading: '"Righteous", cursive, sans;',
+      body: '"Righteous", cursive;'
     }
   },
   styles: {
