@@ -28,11 +28,12 @@ export const ActiveStreamer = () => {
             <StreamerIcon src={data.profile_img} name={data.user_name} />
           </Link>
           <Heading
-            sx={{ paddingTop: '4px', width: { base: '72px', xl: '96px' } }}
+            sx={{ paddingTop: '4px', width: '96px' }}
             as="h3"
             size="base"
             textAlign="center"
             color="text-secondary"
+            fontFamily="'Noto Sans JP', sans-serif, 'Righteous';"
             isTruncated
           >
             {data.user_name}

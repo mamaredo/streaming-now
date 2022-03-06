@@ -1,16 +1,5 @@
-import { chakra } from '@chakra-ui/react'
-
-import { Heading } from '@/components/Elements'
-
 import { GlobalContentWrapper } from './GlobalContentWrapper'
-
-export type HeaderProps = {}
-
-const Span = chakra('span', {
-  baseStyle: {
-    color: 'secondary'
-  }
-})
+import { Logo } from './Logo'
 
 export const Header = () => {
   return (
@@ -19,9 +8,7 @@ export const Header = () => {
       display="flex"
       alignItems="center"
     >
-      <Heading as="h1" fontSize="xx-large" color="white">
-        Streaming Now<Span>?</Span>
-      </Heading>
+      <Logo />
     </GlobalContentWrapper>
   )
 }

@@ -9,6 +9,12 @@ export const theme = extendTheme({
       secondary: {
         default: '#FF2C6C'
       },
+      'bg-primary': {
+        default: '#F8F8FF'
+      },
+      'text-light': {
+        default: '#F8F8FF'
+      },
       'text-primary': {
         default: '#2E2E2E'
       },
