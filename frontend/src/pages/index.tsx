@@ -5,8 +5,6 @@ import Link from 'next/link'
 import { HeroVideo } from '@/components/App/HeroVideo'
 import { Logo } from '@/components/App/Logo'
 import { Head } from '@/components/Head'
-import { MainLayout } from '@/components/Layout'
-import { SignInTwitch } from '@/features/twitch-auth'
 import { TextStyle } from '@/utils/TextStyle'
 
 const HeroHeader = () => {
@@ -25,7 +23,7 @@ const HeroHeader = () => {
       >
         <Box mb="12">
           <Logo fontSize="7xl" />
-          <Text color="white" fontSize="xl" fontWeight="bold">
+          <Text color="text-light" fontSize="xl" fontWeight="bold">
             お気に入りの<TextStyle style="normalWeight">Streamer</TextStyle>
             を見たいあなたに
             <br />
@@ -42,6 +40,7 @@ const HeroHeader = () => {
             bgColor="rgba(248,248,255, 0.25)"
             border="2px"
             borderColor="text-light"
+            boxShadow="md"
           >
             START
           </Button>
@@ -59,10 +58,6 @@ const Home: NextPage = () => {
     <>
       <Head />
       <HeroHeader />
-      <MainLayout>
-        <Logo />
-        <SignInTwitch />
-      </MainLayout>
     </>
   )
 }
