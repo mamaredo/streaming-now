@@ -1,26 +1,21 @@
-import { chakra, ChakraProps } from '@chakra-ui/react'
+import { ChakraProps } from '@chakra-ui/react'
 
 import { Heading } from '@/components/Elements'
+import { TextStyle } from '@/utils/TextStyle'
 
 type StyleProps = {
   color: ChakraProps['color']
   fontSize: ChakraProps['fontSize']
 }
 
-export type LogoProps = {
-  styles?: Partial<StyleProps>
-}
-
-const Span = chakra('span', {
-  baseStyle: {
-    color: 'secondary'
-  }
-})
+export type LogoProps = Partial<StyleProps>
 
 export const Logo = ({
-  styles = { fontSize: 'xx-large', color: 'white' }
+  fontSize = 'xx-large',
+  color = 'white',
+  ...props
 }: LogoProps) => (
-  <Heading as="h1" fontSize={styles.fontSize} color={styles.color}>
-    Streaming Now<Span>?</Span>
+  <Heading as="h1" fontSize={fontSize} color={color} {...props}>
+    Streaming Now<TextStyle style="accent">?</TextStyle>
   </Heading>
 )
