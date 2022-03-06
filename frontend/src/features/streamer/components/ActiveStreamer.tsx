@@ -32,6 +32,7 @@ export const ActiveStreamer = () => {
             as="h3"
             size="base"
             textAlign="center"
+            color="text-secondary"
             isTruncated
           >
             {data.user_name}
