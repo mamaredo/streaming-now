@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 
+import { Head } from '@/components/Head'
 import { MainLayout } from '@/components/Layout'
 import { ActiveStreamer } from '@/features/streamer'
 
@@ -33,12 +34,15 @@ const MyPage = () => {
   }, [existsCookie, router])
 
   return (
-    <MainLayout>
-      <div>
-        my-page
-        <ActiveStreamer />
-      </div>
-    </MainLayout>
+    <>
+      <Head />
+      <MainLayout>
+        <div>
+          my-page
+          <ActiveStreamer />
+        </div>
+      </MainLayout>
+    </>
   )
 }
 
