@@ -12,7 +12,7 @@ export type LogoProps = Partial<StyleProps>
 
 export const Logo = ({
   fontSize = 'xx-large',
-  color = 'white',
+  color = 'text-light',
   ...props
 }: LogoProps) => (
   <Heading as="h1" fontSize={fontSize} color={color} {...props}>
