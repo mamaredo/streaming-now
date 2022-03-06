@@ -1,31 +1,13 @@
 import { Box } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { useCookies } from 'react-cookie'
+import { useEffect } from 'react'
 
 import { Header } from '@/components/App'
 import { Heading } from '@/components/Elements'
 import { Head } from '@/components/Head'
 import { MainLayout } from '@/components/Layout'
 import { ActiveStreamer } from '@/features/streamer'
-
-const useExistsCookies = () => {
-  const [existsCookie, setExistsCookie] = useState<null | boolean>(null)
-  const [cookies] = useCookies()
-
-  useEffect(() => {
-    console.log('useExistsCookies')
-    const accessToken = cookies['twitch_access_token']
-    // const idToken = cookies['twitch_id_token']
-
-    if (!accessToken) return setExistsCookie(false)
-    setExistsCookie(true)
-  }, [cookies])
-
-  return {
-    existsCookie
-  }
-}
+import { useHasAccessToken } from '@/hooks/useHasAccessToken'
 
 const SectionHeading = ({ text }: { text: string }) => (
   <Heading as="h2" fontSize="28px" color="text-primary">
@@ -34,13 +16,13 @@ const SectionHeading = ({ text }: { text: string }) => (
 )
 
 const MyPage = () => {
-  const { existsCookie } = useExistsCookies()
+  const { hasAccessToken } = useHasAccessToken()
   const router = useRouter()
 
   useEffect(() => {
-    if (!router.isReady || existsCookie === null) return
-    !existsCookie && router.replace('/')
-  }, [existsCookie, router])
+    if (!router.isReady || hasAccessToken === null) return
+    !hasAccessToken && router.replace('/')
+  }, [hasAccessToken, router])
 
   return (
     <>
