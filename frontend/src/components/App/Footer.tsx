@@ -1,13 +1,13 @@
 import { Text } from '@chakra-ui/react'
 
-import { AppContentWrapper } from './AppContentWrapper'
+import { GlobalContentWrapper } from './GlobalContentWrapper'
 
 export type FooterProps = {}
 
 export const Footer = () => {
   return (
-    <AppContentWrapper>
+    <GlobalContentWrapper>
       <Text color="white">from footer</Text>
-    </AppContentWrapper>
+    </GlobalContentWrapper>
   )
 }
