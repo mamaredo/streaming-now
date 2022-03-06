@@ -1,2 +1,2 @@
-export * from './components/SignInTwitch'
+export * from './components/TwitchLink'
 export * from './hooks/useCallbackTwitch'

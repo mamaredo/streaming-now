@@ -31,7 +31,7 @@ export const theme = extendTheme({
     global: {
       body: {
         letterSpacing: '0.5px',
-        background: '#FAFAFA'
+        background: '#F8F8FF'
       }
     }
   }
