@@ -1,9 +1,7 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import { Container } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 
-import { Footer } from '@/components/Footer'
-import { GlobalHeader } from '@/components/GlobalHeader'
+import { Footer } from '@/components/App'
 
 export type MainLayoutProps = {
   children: ReactNode
@@ -12,8 +10,10 @@ export type MainLayoutProps = {
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <>
-      <GlobalHeader />
-      <Container maxW={{ base: 'container.md', xl: 'container.lg' }}>
+      <Container
+        maxW={{ base: 'container.md', xl: 'container.lg' }}
+        minHeight="100vh"
+      >
         {children}
       </Container>
       <Footer />
