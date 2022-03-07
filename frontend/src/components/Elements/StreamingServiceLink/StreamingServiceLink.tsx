@@ -20,15 +20,21 @@ export const StreamingServiceLink = ({
   style
 }: StreamingServiceLinkProps) => {
   return (
-    <Box display="flex" flexFlow="column" maxWidth="160px">
+    <Box display="flex" flexFlow="column">
       <Link
         href={url}
         borderRadius="md"
         bgColor={style?.bgColor}
         boxShadow="md"
       >
-        <Box p="10" w="full">
-          <Image mx="auto" width="64px" src={icon} alt={serviceName} />
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height={{ base: '136px', sm: '160px' }}
+          width={{ base: '136px', sm: '160px' }}
+        >
+          <Image width="64px" src={icon} alt={serviceName} />
         </Box>
       </Link>
       <Text
