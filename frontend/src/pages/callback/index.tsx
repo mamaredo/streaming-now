@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import { SignInTwitch, useCallbackTwitch } from '@/features/twitch-auth'
+import { useCallbackTwitch } from '@/features/twitch-auth'
 
 const Callback: NextPage = () => {
   const router = useRouter()
@@ -22,7 +22,6 @@ const Callback: NextPage = () => {
     return (
       <div>
         <Text>認証に失敗しました。</Text>
-        <SignInTwitch />
       </div>
     )
   }
