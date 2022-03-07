@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/mamaredo/streaming-now/api/twitch"
+	"github.com/mamaredo/streaming-now/api/youtube"
 	"github.com/mamaredo/streaming-now/router"
 )
 
@@ -36,6 +37,7 @@ func main() {
 	tests = append(tests, Test{ID: "1", Title: "Test API"})
 
 	r.HandleFunc("/api/twitch/auth", twitch.Auth).Methods("POST", "OPTIONS")
+	r.HandleFunc("/api/youtube/auth", youtube.Auth).Methods("GET") // ("POST", "OPTIONS")
 	r.HandleFunc("/api/tests", getTests).Methods("GET")
 	r.HandleFunc("/api/test", getTest).Methods("GET")
 
