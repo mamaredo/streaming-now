@@ -1,7 +1,6 @@
 package twitch
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/lestrrat-go/jwx/jwt"
@@ -12,7 +11,7 @@ func VerifyIdToken(jwtToken *string) (jwt.Token, error) {
 	var id_token = []byte(*jwtToken)
 	token, err := jwt.Parse(id_token)
 	if err != nil {
-		fmt.Println("parsed error", err)
+		log.Println("parsed error", err)
 		return nil, err
 	}
 
