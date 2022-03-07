@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import { default as NextHead } from 'next/head'
 
 export type HeadProps = {

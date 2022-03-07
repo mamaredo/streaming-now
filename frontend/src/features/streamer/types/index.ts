@@ -1,5 +1,6 @@
 export type Endpoint = {
-  streamer: '/api/twitch/active-streamer'
+  activeStreamer: '/api/twitch/active-streamer'
+  sleepStreamer: '/api/twitch/sleep-streamer'
 }
 
 export type ActiveStreamer = {
@@ -12,4 +13,10 @@ export type ActiveStreamer = {
   thumbnail_url: string
   stream_link: string
   viewer_count: number
+}
+
+export type SleepStreamer = {
+  user_name: string
+  profile_img: string
+  stream_link: string
 }

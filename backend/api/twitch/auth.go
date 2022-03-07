@@ -2,7 +2,6 @@ package twitch
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -13,24 +12,18 @@ import (
 	"github.com/mamaredo/streaming-now/pkg/env"
 )
 
-// const (
-// 	oauthSessionName = "oauth-oidc-session"
-// )
-
-// var (
-// 	cookieSecret = []byte("Please use a more sensible secret than this one")
-// 	cookieStore  = sessions.NewCookieStore(cookieSecret)
-// )
-
 type Response struct {
 	Is_auth bool `json:"is_auth"`
 }
 
 func Auth(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "OPTIONS" {
+
+		log.Println("[OPTIONS] /api/twitch/auth")
 		w.WriteHeader(http.StatusOK)
 		return
 	}
+	log.Println("[POST] /api/twitch/auth")
 
 	q := r.URL.Query()
 	token, err := requestToken(q, r)
@@ -96,13 +89,13 @@ type AuthorizationBody struct {
 func requestToken(query url.Values, r *http.Request) (map[string]interface{}, error) {
 	b, err := io.ReadAll(r.Body)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 	defer r.Body.Close()
 
 	var auth AuthorizationBody
 	if err = json.Unmarshal(b, &auth); err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 
 	v := url.Values{}

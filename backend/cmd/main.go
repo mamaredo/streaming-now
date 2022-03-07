@@ -40,5 +40,6 @@ func main() {
 	r.HandleFunc("/api/test", getTest).Methods("GET")
 
 	r.HandleFunc("/api/twitch/active-streamer", twitch.GetActiveStreamer).Methods("GET")
+	r.HandleFunc("/api/twitch/sleep-streamer", twitch.GetSleepStremaer).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", r))
 }

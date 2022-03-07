@@ -5,7 +5,7 @@ import { ActiveStreamer, Endpoint } from '../types'
 type Response = {
   data: ActiveStreamer[]
 }
-const endpoint: Endpoint['streamer'] = '/api/twitch/active-streamer'
+const endpoint: Endpoint['activeStreamer'] = '/api/twitch/active-streamer'
 
 export const getActiveStreamer = async () => {
   const { data }: Response = await axios.get(endpoint)

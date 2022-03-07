@@ -2,7 +2,6 @@ package twitch
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -53,6 +52,6 @@ func VerifyAccessToken(w http.ResponseWriter, r *http.Request) *VerifiedToken {
 	json.Unmarshal(body, &verifiedToken)
 
 	verifiedToken.Access_token = accessToken.Value
-	fmt.Println(verifiedToken)
+	log.Println("[Twitch] AccessToken verify ok :)")
 	return &verifiedToken
 }

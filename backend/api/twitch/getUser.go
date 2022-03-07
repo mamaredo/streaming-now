@@ -2,13 +2,13 @@ package twitch
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 )
 
 type Uids []string
 
 type userResponseModel struct {
+	Login             string
 	Description       string
 	Id                string
 	Display_name      string
@@ -22,10 +22,8 @@ type UserResponse struct {
 func GetUser(token *VerifiedToken, uids Uids) (*UserResponse, error) {
 	var queryString = uids[0]
 	const id = "id="
-	fmt.Println(queryString)
 	if len(uids) >= 2 {
 		u := uids[1:]
-		fmt.Println(u)
 		for i := 0; i < len(u); i++ {
 			queryString += "&" + id + u[i]
 		}
