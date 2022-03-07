@@ -87,17 +87,13 @@ func filterUser(activeAll []int, followAll []int) []int {
 	sort.Sort(sort.Reverse(sort.IntSlice(activeAll))) // 降順
 	sort.Ints(followAll)                              // 昇順
 
-	var count = 0
 	for 0 < len(activeAll) {
-
 		for j := 0; j < len(followAll); j++ {
-			if activeAll[0] < followAll[j] {
+			if activeAll[0] == followAll[j] {
 				results = append(results, followAll[j+1:]...)
 				followAll = followAll[:j]
 				break
 			}
-			results = append(results, followAll[j])
-			count += 1
 		}
 		activeAll = activeAll[1:]
 	}
