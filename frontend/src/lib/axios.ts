@@ -2,7 +2,7 @@ import Axios from 'axios'
 
 export const axios = Axios.create({
   withCredentials: true,
-  baseURL: 'http://localhost:8000'
+  baseURL: 'https://localhost:8000'
 })
 
 axios.interceptors.response.use(
