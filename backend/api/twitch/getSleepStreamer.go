@@ -2,6 +2,7 @@ package twitch
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 	"sort"
 	"strconv"
@@ -18,6 +19,7 @@ type sleepStreamerResponse struct {
 }
 
 func GetSleepStremaer(w http.ResponseWriter, r *http.Request) {
+	log.Println("[GET] /api/twitch/sleep-streamer")
 	token := VerifyAccessToken(w, r)
 
 	au, err := GetFollowActiveStreamer(token)
@@ -75,7 +77,7 @@ func GetSleepStremaer(w http.ResponseWriter, r *http.Request) {
 		res.Data = append(res.Data, sleepStreamerResponseModel{
 			User_name:   u.Data[i].Display_name,
 			Profile_img: u.Data[i].Profile_image_url,
-			Stream_link: "https://www.twitch.tv/" + u.Data[i].Display_name,
+			Stream_link: "https://www.twitch.tv/" + u.Data[i].Login,
 		})
 	}
 
@@ -98,6 +100,6 @@ func filterUser(activeAll []int, followAll []int) []int {
 		activeAll = activeAll[1:]
 	}
 	results = append(results, followAll[:]...)
-
+	log.Println("[GET] /api/twitch/sleep-streamer OK :)")
 	return results
 }

@@ -2,6 +2,7 @@ package twitch
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 )
 
@@ -30,6 +31,7 @@ func GetActiveStreamer(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("400 Bad Request"))
 		return
 	}
+	log.Println("[GET] /api/twitch/active-streamer")
 
 	uids := []string{}
 	for _, v := range f.Data {
@@ -56,10 +58,11 @@ func GetActiveStreamer(w http.ResponseWriter, r *http.Request) {
 			Started_at:    f.Data[i].Started_at,
 			Game_name:     f.Data[i].Game_name,
 			Thumbnail_url: f.Data[i].Thumbnail_url,
-			Stream_link:   "https://www.twitch.tv/" + u.Data[i].Display_name,
+			Stream_link:   "https://www.twitch.tv/" + u.Data[i].Login,
 			Viewer_count:  f.Data[i].Viewer_count,
 		})
 	}
 
+	log.Println("[GET] /api/twitch/active-streamer OK :)")
 	json.NewEncoder(w).Encode(res)
 }
