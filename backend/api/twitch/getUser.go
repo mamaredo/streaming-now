@@ -8,6 +8,7 @@ import (
 type Uids []string
 
 type userResponseModel struct {
+	Login             string
 	Description       string
 	Id                string
 	Display_name      string
