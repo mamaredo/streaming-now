@@ -33,15 +33,13 @@ func getTest(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := router.Setup()
-	// twitchRouter :=
-	tests = append(tests, Test{ID: "1", Title: "Test API"})
 
 	r.HandleFunc("/api/twitch/auth", twitch.Auth).Methods("POST", "OPTIONS")
-	r.HandleFunc("/api/youtube/auth", youtube.Auth).Methods("GET") // ("POST", "OPTIONS")
+	r.HandleFunc("/api/youtube/auth", youtube.Auth).Methods("POST", "OPTIONS")
 	r.HandleFunc("/api/tests", getTests).Methods("GET")
 	r.HandleFunc("/api/test", getTest).Methods("GET")
 
 	r.HandleFunc("/api/twitch/active-streamer", twitch.GetActiveStreamer).Methods("GET")
 	r.HandleFunc("/api/twitch/sleep-streamer", twitch.GetSleepStremaer).Methods("GET")
-	log.Fatal(http.ListenAndServe(":8000", r))
+	log.Fatal(http.ListenAndServeTLS(":8000", "cert.pem", "key.pem", r))
 }

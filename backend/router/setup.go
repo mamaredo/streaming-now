@@ -9,7 +9,7 @@ import (
 
 func requestHeaderMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		origin := "http://localhost:3000"
+		origin := "https://localhost:3000"
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 		w.Header().Add("Access-Control-Request-Method", "POST, OPTIONS")
 		w.Header().Add("Access-Control-Allow-Headers", "Content-Type")
