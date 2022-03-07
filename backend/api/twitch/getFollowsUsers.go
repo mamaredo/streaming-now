@@ -6,8 +6,7 @@ import (
 )
 
 type followsUsersResponseModel struct {
-	To_id   string
-	To_name string
+	To_id string
 }
 
 type FolowsUsersResponse struct {
