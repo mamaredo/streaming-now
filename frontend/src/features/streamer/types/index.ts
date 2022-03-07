@@ -14,3 +14,9 @@ export type ActiveStreamer = {
   stream_link: string
   viewer_count: number
 }
+
+export type SleepStreamer = {
+  user_name: string
+  profile_img: string
+  stream_link: string
+}
