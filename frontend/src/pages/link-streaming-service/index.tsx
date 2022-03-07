@@ -3,7 +3,7 @@ import type { NextPage } from 'next'
 
 import { Logo } from '@/components/App/Logo'
 import { MainLayout } from '@/components/Layout'
-import { TwitchLink } from '@/features/twitch-auth'
+import { TwitchAuth } from '@/features/twitch-auth'
 
 const LinkStreamingService: NextPage = () => {
   return (
@@ -18,7 +18,7 @@ const LinkStreamingService: NextPage = () => {
         </Text>
       </Box>
       <Box pt="10">
-        <TwitchLink />
+        <TwitchAuth />
       </Box>
     </MainLayout>
   )
