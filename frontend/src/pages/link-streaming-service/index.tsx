@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 import { Logo } from '@/components/App/Logo'
 import { MainLayout } from '@/components/Layout'
 import { TwitchAuth } from '@/features/twitch-auth'
+import { YoutubeAuth } from '@/features/youtube-auth'
 
 const LinkStreamingService: NextPage = () => {
   return (
@@ -17,8 +18,14 @@ const LinkStreamingService: NextPage = () => {
           ※後から追加することもできます
         </Text>
       </Box>
-      <Box pt="10">
-        <TwitchAuth />
+      <Box pt="10" display="flex">
+        <Box pr={{ base: '16px', xl: '24px' }}>
+          <TwitchAuth />
+        </Box>
+
+        <Box>
+          <YoutubeAuth />
+        </Box>
       </Box>
     </MainLayout>
   )
