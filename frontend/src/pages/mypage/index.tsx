@@ -6,7 +6,8 @@ import { Header } from '@/components/App'
 import { Heading } from '@/components/Elements'
 import { Head } from '@/components/Head'
 import { MainLayout } from '@/components/Layout'
-import { ActiveStreamer, SleepStreamer } from '@/features/streamer'
+import { ActiveStreamer } from '@/features/active-streamer'
+import { SleepStreamer } from '@/features/sleep-streamer'
 import { useHasAccessToken } from '@/hooks/useHasAccessToken'
 
 const SectionHeading = ({ text }: { text: string }) => (
