@@ -1,5 +1,7 @@
 # Streaming Now?
 
+slideURL: https://docs.google.com/presentation/d/1nCelWuPGv7GQ69tCAfSbvlH5X7TKncE2wBxZS5ygUa8/edit?usp=sharing
+
 ## 概要
 
 様々な配信プラットフォーム上で配信しているストリーマーが、   
