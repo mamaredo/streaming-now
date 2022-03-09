@@ -173,3 +173,22 @@ import type { FeatureB } from '@/features/featureB' // bad
 ```
 
 <br />
+
+### ESLintを用いたimportの制限
+
+```
+// rulesの中
+"no-restricted-imports": [
+  "error",
+  {
+    patterns: [
+      /* @/components */
+      "@/components/*/*",
+      "!@/components/*",
+
+      /* @/features */
+      "@/features/*/*"
+    ]
+  }
+],
+```
