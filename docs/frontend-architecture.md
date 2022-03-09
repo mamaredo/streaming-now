@@ -6,8 +6,6 @@
 
 [その他 - package.json](https://github.com/mamaredo/streaming-now/blob/develop/frontend/package.json)
 
-<br />
-
 ## Directory
 
 > **📘 参考にしている記事, Repository**
@@ -37,7 +35,7 @@ frontend/src
 +-- utils  # 汎用的な関数
 ```
 
-外部moduleからの呼び出しはaliasを用いた絶対パス
+外部moduleからの呼び出しはaliasを用いた絶対パス  
 内部moduleからの呼び出しは相対パス
 
 <br />
@@ -65,9 +63,7 @@ components
 
 - components/*で定義されているコンポーネントからfeaturesを呼ぶことはしない
 
-<br />
-
-#### 外部moduleからの呼び出し
+### 外部moduleからの呼び出し
 
 ```typescript
 import { Footer } from '@/components/App'
@@ -75,7 +71,7 @@ import { CommonComponent } from '@/components/Elements'
 import { OtherComponent } from '@/components/OtherComponent'
 ```
 
-#### component/Elements/index.ts
+### component/Elements/index.ts
 
 > **📘 参考資料**
 > [barrel - TypeScript Deep Dive](https://typescript-jp.gitbook.io/deep-dive/main-1/barrel)
@@ -84,6 +80,10 @@ import { OtherComponent } from '@/components/OtherComponent'
 export * from './CommonComponent'
 export * from './Hoge'
 ```
+
+<br />
+
+***
 
 <br />
 
@@ -116,13 +116,13 @@ awesome-feature
 
 - featureの粒度はそのfeatureを削除すると機能が無くなるかどうかで判断
 
-#### 外部moduleからの呼び出し
+### 外部moduleからの呼び出し
 
 ```typescript
 import { AwesomeFeature, useAwesomeFeature } from '@/features/awesome-feature'
 ```
 
-#### features/awesome-feature/index.ts
+### features/awesome-feature/index.ts
 
 > **📘 参考資料**
 > [barrel - TypeScript Deep Dive](https://typescript-jp.gitbook.io/deep-dive/main-1/barrel)
@@ -136,7 +136,7 @@ export * from './types'
 featureが他のfeatureを包括することもできるが、包括されたfeatureは外部moduleからは
 使わないようにする。
 
-#### example
+### example
 
 ```sh
 src
@@ -152,7 +152,7 @@ src
 
 - featureAはfeatureBを包括した機能
 
-#### pages/Hoge.tsx
+### pages/Hoge.tsx
 
 ```typescript
 import { FeatureA } from '@/features/featureA' // good
@@ -162,7 +162,7 @@ import { FeatureA } from '@/features/featureA' // good
 import { FeatureB } from '@/features/featureB' // bad
 ```
 
-##### 例外
+例外
 
 - 型のimport
 
