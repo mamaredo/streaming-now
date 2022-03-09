@@ -1,6 +1,6 @@
 # Streaming Now?
 
-slideURL: https://docs.google.com/presentation/d/1nCelWuPGv7GQ69tCAfSbvlH5X7TKncE2wBxZS5ygUa8/edit?usp=sharing
+slideURL: [Google スライド](https://docs.google.com/presentation/d/1nCelWuPGv7GQ69tCAfSbvlH5X7TKncE2wBxZS5ygUa8/edit?usp=sharing)
 
 ## 概要
 
