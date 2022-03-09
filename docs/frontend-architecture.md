@@ -10,7 +10,7 @@
 
 > **📘 参考にしている記事, Repository**
 >
-> [bulletproof-react - repository](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md)
+> [bulletproof-react - repository](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md)  
 > [Reactベストプラクティスの宝庫！「bulletproof-react」が勉強になりすぎる件 - zenn](https://zenn.dev/meijin/articles/bulletproof-react-is-best-architecture)
 
 ```sh
@@ -74,6 +74,7 @@ import { OtherComponent } from '@/components/OtherComponent'
 ### component/Elements/index.ts
 
 > **📘 参考資料**
+> 
 > [barrel - TypeScript Deep Dive](https://typescript-jp.gitbook.io/deep-dive/main-1/barrel)
 
 ```typescript
@@ -125,6 +126,7 @@ import { AwesomeFeature, useAwesomeFeature } from '@/features/awesome-feature'
 ### features/awesome-feature/index.ts
 
 > **📘 参考資料**
+> 
 > [barrel - TypeScript Deep Dive](https://typescript-jp.gitbook.io/deep-dive/main-1/barrel)
 
 ```typescript
